@@ -21,22 +21,11 @@ jobs:
         distribution: 'temurin'
         java-version: 17
 
-    - name: Find gradlew
-      id: find_gradlew
-      run: |
-        GRADLEW_FILE=$(find . -name gradlew -type f | head -n 1)
-        if [ -z "$GRADLEW_FILE" ]; then
-          echo "Error: gradlew not found in repo!"
-          exit 1
-        fi
-        echo "GRADLEW_PATH=$GRADLEW_FILE" >> $GITHUB_ENV
-        echo "Found gradlew at $GRADLEW_FILE"
+    - name: Set up Gradle
+      uses: gradle/gradle-build-action@v2
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x $GRADLEW_PATH
-
-    - name: Build with Gradle
-      run: $GRADLEW_PATH build
+    - name: Build project
+      run: gradle build
 
     - name: Upload mod artifact
       uses: actions/upload-artifact@v4
