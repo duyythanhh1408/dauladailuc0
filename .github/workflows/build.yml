@@ -21,14 +21,14 @@ jobs:
         distribution: 'temurin'
         java-version: 17
 
-    - name: Set up Gradle
-      uses: gradle/gradle-build-action@v2
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
 
-    - name: Build project
-      run: gradle build
+    - name: Build with Gradle wrapper
+      run: ./gradlew build
 
     - name: Upload mod artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Dauladailuc-Mod
+        name: Dauladailuc-Mod-${{ github.sha }}
         path: build/libs/*.jar
