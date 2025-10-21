@@ -27,8 +27,14 @@ jobs:
     - name: Build with Gradle wrapper
       run: ./gradlew build
 
+    - name: Set artifact name with date and commit SHA
+      id: artifact
+      run: |
+        DATETIME=$(date +'%Y-%m-%d-%H%M')
+        echo "ARTIFACT_NAME=Dauladailuc-Mod-${DATETIME}-${GITHUB_SHA::8}" >> $GITHUB_ENV
+
     - name: Upload mod artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Dauladailuc-Mod-${{ github.sha }}
+        name: ${{ env.ARTIFACT_NAME }}
         path: build/libs/*.jar
