@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="dauladailuc"
+version="1.0.0"
+displayName="Đấu La Đại Lục"
+updateJSONURL=""
+displayURL="https://github.com/<tên-tài-khoản>/dauladailuc"
+logoFile="icon.png"
+authors="Duy Thanh"
+description='''
+Một mod lấy cảm hứng từ Đấu La Đại Lục – với hệ thống hồn lực, hồn hoàn, võ hồn và công pháp đặc trưng.
+Tích hợp cơ chế tiến cấp, hấp thụ hồn hoàn và hiệu ứng chiến đấu nâng cao.
+'''
+
+[[dependencies.dauladailuc]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dauladailuc]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
